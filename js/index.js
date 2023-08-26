@@ -36,6 +36,9 @@
             pois,
             circlego,
             urlHash;
+
+        BR.MAPInstance = map;
+
         // By default bootstrap-select use glyphicons
         $('.selectpicker').selectpicker({
             iconBase: 'fa',
@@ -308,6 +311,7 @@
         pois = new BR.PoiMarkers(routing);
 
         exportRoute = new BR.Export(router, pois, profile);
+        BR.ExportRouteInstance = exportRoute;
         new BR.ShareRoute();
 
         routing.on('routing:routeWaypointEnd routing:setWaypointsEnd routing:rerouteSegmentEnd', function (evt) {

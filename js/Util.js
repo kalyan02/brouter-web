@@ -111,6 +111,7 @@ BR.Util = {
         if (
             document.activeElement.type == 'number' ||
             document.activeElement.type == 'text' ||
+            document.activeElement.type == 'search' ||
             document.activeElement.type == 'textarea'
         ) {
             return false;
