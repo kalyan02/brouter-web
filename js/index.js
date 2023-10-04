@@ -38,6 +38,7 @@
             urlHash;
 
         BR.MAPInstance = map;
+        BR.RouteEvents = new EventTarget();
 
         // By default bootstrap-select use glyphicons
         $('.selectpicker').selectpicker({
@@ -368,6 +369,15 @@
             trackAnalysis.update(track, segments);
 
             exportRoute.update(latLngs, segments);
+            BR.RouteEvents.dispatchEvent(
+                new CustomEvent('route-updated', {
+                    detail: {
+                        latLngs,
+                        segments,
+                        track,
+                    },
+                })
+            );
         }
 
         routing.addTo(map);
